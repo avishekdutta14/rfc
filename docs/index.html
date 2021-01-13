@@ -460,8 +460,8 @@ write.csv(p1,&quot;training_phase.csv&quot;)</code></pre>
 <pre class="r"><code>p2 &lt;- predict(rf, test)
 write.csv(p2,&quot;validation_phase.csv&quot;)</code></pre>
 </div>
-<div id="finding-training-with-70-of-the-withheld-data-accuracies-using-linear-models" class="section level2">
-<h2>Finding training (with 70% of the withheld data) accuracies using linear models</h2>
+<div id="finding-training-with-70-of-the-withheld-data-accuracies-using-confusion-matrix" class="section level2">
+<h2>Finding training (with 70% of the withheld data) accuracies using confusion matrix</h2>
 <p>2 steps are present here</p>
 <ol style="list-style-type: decimal">
 <li>Comparison of actual vs. predicted values</li>
@@ -518,8 +518,8 @@ confusionMatrix(p1, train$phase)</code></pre>
 ## Detection Prevalence   0.2217  0.04051   0.6716    0.0661
 ## Balanced Accuracy      1.0000  1.00000   1.0000    1.0000</code></pre>
 </div>
-<div id="finding-validation-accuracies-30-of-the-withheld-data-using-linear-models-this-is-the-main-evaluation-for-predictive-performance" class="section level2">
-<h2>Finding validation accuracies (30% of the withheld data) using linear models (this is the main evaluation for predictive performance)</h2>
+<div id="finding-validation-accuracies-30-of-the-withheld-data-using-confusion-matrix-this-is-the-main-evaluation-for-predictive-performance" class="section level2">
+<h2>Finding validation accuracies (30% of the withheld data) using confusion matrix (this is the main evaluation for predictive performance)</h2>
 <p>2 steps are present here</p>
 <ol style="list-style-type: decimal">
 <li>Comparison of actual vs. predicted values</li>
@@ -571,7 +571,7 @@ confusionMatrix(p2, test$phase)</code></pre>
 </div>
 <div id="assessing-important-variables-for-prediction" class="section level2">
 <h2>Assessing important variables for prediction</h2>
-<p>Variable important for predicting the response/dependent variable can be evaluated. Mean Decrease in Accuracy (MDA) is an important and informative parameter for determining importance of a particular variable. Mean Decrease Accuracy indicates the decrease in accuracy of the model when a particular variable is excluded. The higher the value, the more important the variable is.</p>
+<p>Variables important for predicting the response/dependent variable can be evaluated. Mean Decrease in Accuracy (MDA) is an important and informative parameter for determining importance of a particular variable. Mean Decrease Accuracy indicates the decrease in accuracy of the model when a particular variable is excluded. The higher the value, the more important the variable is.</p>
 <pre class="r"><code>#plotting top 10 variable which are important for decision making in decision making tree
 
 varImpPlot(rf,
